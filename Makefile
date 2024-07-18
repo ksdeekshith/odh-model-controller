@@ -2,7 +2,7 @@
 # Image URL to use all building/pushing image targets
 IMG ?= quay.io/${USER}/odh-model-controller:latest
 # ENVTEST_K8S_VERSION refers to the version of kubebuilder assets to be downloaded by envtest binary.
-ENVTEST_K8S_VERSION = 1.26
+ENVTEST_K8S_VERSION = 1.29
 
 ENGINE ?= docker
 
@@ -152,7 +152,7 @@ controller-gen: $(CONTROLLER_GEN) ## Download controller-gen locally if necessar
 $(CONTROLLER_GEN): $(LOCALBIN)
 	GOBIN=$(LOCALBIN) go install sigs.k8s.io/controller-tools/cmd/controller-gen@$(CONTROLLER_TOOLS_VERSION)
 
-ENVTEST_PACKAGE_VERSION = v0.0.0-20240320141353-395cfc7486e6
+ENVTEST_PACKAGE_VERSION = latest
 .PHONY: envtest
 envtest: $(ENVTEST) ## Download envtest-setup locally if necessary.
 $(ENVTEST): $(LOCALBIN)
